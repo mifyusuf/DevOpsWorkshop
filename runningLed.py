@@ -16,8 +16,8 @@ print "Done" ## When loop is complete, print "Done"
 GPIO.cleanup()
 
 ## Ask user for total number of blinks and length of each blink
-iterations = raw_input("Enter total number of times to blink: ")
-speed = raw_input("Enter length of each blink(seconds): ")
+iterations = raw_input("10")
+speed = raw_input("1")
 
 ## Start Blink() function. Convert user input from strings to numeric data types and pass to Blink() as parameters
 Blink(int(iterations),float(speed))
