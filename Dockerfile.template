@@ -24,7 +24,7 @@ RUN apt-get -qy install \
 	python \
 	python3.4-dev \
 	python3-pip \
-	python-picamera \
+
 	python-numpy \
 	python3-pygame
 	
