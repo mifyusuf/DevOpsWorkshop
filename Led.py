@@ -28,4 +28,14 @@ while True:
 	Led().LedOn(Led3)
 	time.sleep(0.5)
 	Led().LedOff(Led3)
+	time.sleep(0.5)
+	
+	Led().LedOn(Led1)
+	Led().LedOn(Led2)
+	Led().LedOn(Led3)
+	time.sleep(0.5)
+	Led().LedOff(Led1)
+	Led().LedOff(Led2)
+	Led().LedOff(Led3)
+	time.sleep(0.5)
 	
