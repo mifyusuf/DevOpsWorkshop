@@ -1,27 +1,14 @@
 FROM resin/%%RESIN_MACHINE_NAME%%-python
 
-# update apt
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+#switch on systemd init system in container
+ENV INITSYSTEM on
 
-# install necessary build tools
-RUN apt-get -qy install build-essential cmake pkg-config unzip wget
+# pip install python deps from requirements.txt
+# For caching until requirements.txt changes
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 
-# install necessary libraries
-RUN apt-get -qy install \
-	python \
-	python3.4-dev \
-	python3-pip \
-
-RUN pip3 install --upgrade pip && \
-    pip3 install numpy && \
-
-    apt-get autoclean && apt-get clean && \
-
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-	
-
-
-ADD . /app
-RUN pip install RPi.GPIO
+COPY . /usr/src/app
+WORKDIR /usr/src/app
 
 CMD ["python", "Led.py"]
