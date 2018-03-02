@@ -47,4 +47,4 @@ WORKDIR /usr/ParkingFaceRec/app
 RUN echo "udevd --daemon" > /start
 RUN echo  "modprobe spi-bcm2835-v412" >> /start
 
-CMD ["python", "runningLed.py"]
+CMD ["python", "Led.py"]
