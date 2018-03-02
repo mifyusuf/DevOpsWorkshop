@@ -8,26 +8,10 @@ RUN apt-get -qy install build-essential cmake pkg-config unzip wget
 
 # install necessary libraries
 RUN apt-get -qy install \
-	libjpeg-dev \
-	libtiff5-dev \
-	libjasper-dev \
-	libpng12-dev \
-	libavcodec-dev \
-	libavformat-dev \
-	libswscale-dev \
-	libv4l-dev \
-	libxvidcore-dev \
-	libx264-dev \
-	libgtk2.0-dev \
-	libatlas-base-dev \
-	gfortran \
 	python \
 	python3.4-dev \
 	python3-pip \
 
-	python-numpy \
-	python3-pygame
-	
 RUN pip3 install --upgrade pip && \
     pip3 install numpy && \
 
@@ -39,12 +23,5 @@ RUN pip3 install --upgrade pip && \
 
 ADD . /app
 RUN pip install RPi.GPIO
-
-
-COPY . /usr/ParkingFaceRec/app
-WORKDIR /usr/ParkingFaceRec/app
-# main.py will run when container starts up on the device
-RUN echo "udevd --daemon" > /start
-RUN echo  "modprobe spi-bcm2835-v412" >> /start
 
 CMD ["python", "Led.py"]
