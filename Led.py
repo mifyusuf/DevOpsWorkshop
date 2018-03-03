@@ -19,17 +19,6 @@ Led().set(Led2)
 Led().set(Led3)
 		
 while True:
-	Led().LedOn(Led1)  ## Turn on Led
-	time.sleep(0.5)  
-	Led().LedOff(Led1)	## Wait for one second
-	Led().LedOn(Led2)
-	time.sleep(0.5)
-	Led().LedOff(Led2)
-	Led().LedOn(Led3)
-	time.sleep(0.5)
-	Led().LedOff(Led3)
-	time.sleep(0.5)
-	
 	Led().LedOn(Led1)
 	Led().LedOn(Led2)
 	Led().LedOn(Led3)
